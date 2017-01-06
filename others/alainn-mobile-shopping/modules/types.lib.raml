@@ -1,8 +1,8 @@
 #%RAML 1.0 Library
 
 uses:
-  ano: annotations.raml
-  
+  ano: annotations.lib.raml
+
 types:
   ResourceLink:
     properties:
@@ -29,7 +29,7 @@ types:
     properties:
       price: number
       sku: string
-      stockQuantity: integer  
+      stockQuantity: integer
 
   GetItemsResponse:
     properties:
@@ -67,14 +67,14 @@ types:
                 rel: self
               - href: http://ecx.images-amazon.com/images/I/316RsE4g09L._SL75_.jpg
                 rel: SmallImage
-  
-  
+
+
 
 
   GetItemResponse:
     type: Item
     properties:
-      skus: 
+      skus:
         properties:
           size: integer
           items: Sku[]
@@ -121,14 +121,14 @@ types:
       sku: string
     example:
       sku: B004GW14E4
-  
+
 
   GetMyBasketResponse:
     properties:
       links: ResourceLink[]
-      items: 
+      items:
         type: array
-        items: 
+        items:
           type: Sku
           properties:
             quantity: integer
@@ -191,7 +191,7 @@ types:
         - sku: B0000530ED
           price: 5.99
           quantity: 3
-  
+
   GetMyProfileResponse:
     properties:
       firstName: string
@@ -207,7 +207,7 @@ types:
       notificationPreferences:
         - sms
         - mobilePush
-      
+
   GetBrandsResponse:
     properties:
       links: ResourceLink[]
@@ -219,7 +219,7 @@ types:
       items:
         - Jerome Russell
         - Now Foods
-  
+
   GetCategoriesResponse:
     properties:
       links: ResourceLink[]
@@ -239,18 +239,18 @@ types:
         items:
           properties:
             date: datetime
-            items: 
+            items:
               type: array
-              items: 
+              items:
                 type: Sku
                 properties:
                   quantity: integer
   GetRecommendationsResponse:
     type: GetItemsResponse
-  
+
   GetTrendingItemsResponse:
     type: GetItemsResponse
-    
+
   GetPromotionsResponse:
     type: GetItemsResponse
 
@@ -265,4 +265,3 @@ types:
               properties:
                 user: string
                 review: string
-    
