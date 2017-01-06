@@ -5,7 +5,7 @@ usage: provides a type that stores user information
 description: A simple User
 properties:
   name: string
-  email: !include Email.raml
+  email: !include Email.dataType.raml
   homepage:
     description: User's homepage
-    type: !include Url.raml
+    type: !include Url.dataType.raml

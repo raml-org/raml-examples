@@ -55,7 +55,7 @@ types:
       firstname: John
 
 traits:
-  secured: !include secured/accessToken.raml
+  secured: !include secured/accessToken.trait.raml
 
 resourceTypes:
   collection:
@@ -153,8 +153,8 @@ securitySchemes:
 securedBy: custom_scheme
 
 uses:
-  SongsLib: libraries/songs-library.raml
-  ApiLib: libraries/api-library.raml
+  SongsLib: libraries/songs.lib.raml
+  ApiLib: libraries/api.lib.raml
 
 /api:
   get:
