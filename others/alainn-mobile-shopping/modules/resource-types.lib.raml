@@ -1,12 +1,12 @@
 #%RAML 1.0 Library
 
 uses:
-  tra: traits.raml
-  typ: types.raml
-  
+  tra: traits.lib.raml
+  typ: types.lib.raml
 
-resourceTypes: 
-  base: 
+
+resourceTypes:
+  base:
     get:
       responses:
         200:
@@ -16,7 +16,7 @@ resourceTypes:
   read-only-collection:
     type: base
     get:
-      is: [tra.pageable]  
+      is: [tra.pageable]
   collection:
     type: read-only-collection
     post:
@@ -29,7 +29,7 @@ resourceTypes:
             Location:
               description: uri of new resource
               type: string
-              required: true  
+              required: true
   controller:
     post:
       responses:

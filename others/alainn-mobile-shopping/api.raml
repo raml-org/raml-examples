@@ -4,14 +4,14 @@ title: Álainn Cosmetics Mobile Orders API
 baseUri: https://ec2-52-201-242-128.compute-1.amazonaws.com/mocks/1201bcdf-f1a0-4eb3-a002-4f6f817d44cc/api
 version: 1
 mediaType: application/json
-documentation: 
-  - !include docs/intro.raml
-  - !include docs/security.raml
+documentation:
+  - !include docs/intro.doc.raml
+  - !include docs/security.doc.raml
 uses:
-  res: modules/resource-types.raml
-  tra: modules/traits.raml
-  sec: modules/security.raml
-  
+  res: modules/resource-types.lib.raml
+  tra: modules/traits.lib.raml
+  sec: modules/security.lib.raml
+
 securedBy: [sec.oauth_2_0]
 /items:
   type: res.read-only-collection
@@ -76,7 +76,7 @@ securedBy: [sec.oauth_2_0]
   delete:
     description: Cancel order
   patch:
-    description: 'Modify part of Order: quantity of items, delivery address'  
+    description: 'Modify part of Order: quantity of items, delivery address'
 /trending-items:
   type: res.read-only-collection
   get:
