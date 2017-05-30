@@ -1,0 +1,100 @@
+#%RAML 1.0
+
+title: ACME Banking HTTP API
+version: 1.0
+mediaType: application/json
+
+uses:
+  shapes: ./dataTypes/shapes.raml
+
+traits:
+  contentCacheable: !include traits/content-cacheable.raml
+
+resourceTypes: 
+  collection: !include resourceTypes/collection.raml
+  member: !include resourceTypes/member.raml
+
+types:
+  CustomerMemberResponse: shapes.OrganizationData | shapes.PersonData
+
+securitySchemes:
+  oauth2_0: !include securitySchemes/oauth2_0.raml
+  
+securedBy: oauth2_0
+
+/customers:
+  displayName: Customer Resource
+  /corporate:
+    post:
+      description: Customer data created correctly for an Organization
+      body: shapes.NewOrganizationData
+  /commercial:
+    post:
+      description: Customer data created correctly for a Person
+      body: shapes.NewPersonData
+
+  /{customer_id}:
+    type:
+      member:
+        get-response-type: CustomerMemberResponse
+        patch-response-type: shapes.CustomerPatchData
+    uriParameters:
+      customer_id: string
+    patch:
+    delete:
+    /accounts:
+      type: 
+        collection:
+          response-type: shapes.BankAccountData
+          request-type: shapes.NewBankAccountRequestData
+      /{account_id}:
+        type:
+          member:
+            get-response-type: shapes.BankAccountData
+        uriParameters:
+          account_id: string
+        delete:
+    /loans:
+      type: 
+        collection:
+          response-type: shapes.LoanData
+          request-type: shapes.NewLoanRequestData
+      get:
+        is: [ contentCacheable ]
+      /{loan_id}:
+        type:
+          member:
+            get-response-type: shapes.LoanData
+        uriParameters:
+          loan_id: string
+      /schedule:
+        get:
+          description: Returns the repayments schedule for a Loan
+          responses:
+            200:
+              body: shapes.RepaymentSpecificationData
+    /cards:
+      /debit:
+        type: 
+          collection:
+            response-type: shapes.DebitCardData
+            request-type: shapes.NewDebitCardRequestData
+        /{card_id}:
+          type:
+            member:
+              get-response-type: shapes.DebitCardData
+          uriParameters:
+            card_id: string
+          delete:
+      /credit:
+        type: 
+          collection:
+            response-type: shapes.CreditCardData
+            request-type: shapes.NewCreditCardRequestData
+        /{card_id}:
+          type:
+            member:
+              get-response-type:  shapes.CreditCardData
+          uriParameters:
+            card_id: string
+          delete:

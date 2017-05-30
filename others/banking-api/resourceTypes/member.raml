@@ -1,0 +1,24 @@
+#%RAML 1.0 ResourceType
+
+usage: Apply this resource type to any resource that returns only a single item.
+
+uses:
+ traits: ../traits/traits.raml
+ 
+get:
+  is: [ traits.partial ]
+  description: Returns <<resourcePathName | !singularize>> data
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<get-response-type>>
+patch?:
+  description: Updates <<resourcePathName | !singularize>> data
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<patch-response-type>>
+delete?:
+  description: Removes a <<resourcePathName | !singularize>> from the system 

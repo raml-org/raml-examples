@@ -1,0 +1,25 @@
+#%RAML 1.0 SecurityScheme
+type: OAuth 2.0
+description: ACME Banking API supports OAuth 2.0 security policy for methods that involve updating existing data
+describedBy:
+  headers:
+      Authorization:
+        description: |
+          Used to send a valid OAuth 2 access token. Do not use with the "access_token" query string parameter.
+        type: string
+  queryParameters:
+    access_token:
+      description: |
+        Used to send a valid OAuth 2 access token. Do not use together with the "Authorization" header
+      type: string
+  responses:
+    401:
+      description: |
+        Bad or expired token. This can happen if the API consumer uses a revoked or expired access token. To fix, you should re-authenticate the user.
+    403:
+      description: |
+        Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...). Unfortunately, re-authenticating the user won't help here.
+settings:
+  authorizationUri: https://placeholder.com/oauth2/authorize
+  accessTokenUri: https://placeholder.com/oauth2/access_token
+  authorizationGrants: implicit

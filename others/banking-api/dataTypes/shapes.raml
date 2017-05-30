@@ -1,0 +1,251 @@
+#%RAML 1.0 Library
+
+usage: Data shapes for the HTTP API
+
+types:
+  MonetaryAmountData:
+    properties:
+      value: number
+      currency:
+
+  DurationData:
+    properties:
+      value:
+
+  RepaymentSpecificationData:
+    properties:
+      down_payment: MonetaryAmountData
+      payment_frequency: number
+      number_payments: integer
+      payment_amount: MonetaryAmountData
+      early_payment_penalty: MonetaryAmountData
+
+  AddressData:
+    properties:
+      address_country: 
+      address_locality: 
+      address_region: 
+      postal_code:  
+      street_address: 
+
+  NewCustomerData:
+    type: AddressData
+    properties:
+      lei: 
+      tax_id: 
+      email: 
+      telephone: 
+
+  NewOrganizationData:
+    type: NewCustomerData
+    properties:
+      name: 
+      vat_id: 
+
+  NewPersonData:
+    type: NewCustomerData
+    properties:
+      title?:
+        type: string
+        enum: [mr, mrs, ms, dr]
+      given_name:
+      family_name:
+      gender:
+        type: string
+        enum: [female, male]
+      vat_id?:
+      birth_date: date-only
+
+
+  CustomerData:
+    discriminator: type
+    properties:
+      type: 
+      lei: 
+      tax_id: 
+      email: 
+      address: AddressData
+
+  OrganizationData:
+    discriminatorValue: Organization
+    type: CustomerData
+    properties:
+      id: 
+      name: 
+      vat_id: 
+
+
+  PersonData:
+    discriminatorValue: Person
+    type: CustomerData
+    properties:
+      id: string
+      title?:
+        type: string
+        enum: [mr, mrs, ms, dr]
+      given_name: string
+      family_name: string
+      gender:
+        type: string
+        enum: [female, male]
+      vat_id?: string
+      birth_date: date-only
+      death_date?: date-only
+
+
+  CustomerPatchData:
+    properties:
+      lei?: 
+      tax_id?: 
+      email?: 
+      title?:
+        type: string
+        enum: [mr, mrs, ms, dr]
+      name?: 
+      family_name?: 
+      gender?:
+        type: string
+        enum: [female, male]
+      vat_id?: 
+      birth_date?: date-only
+      death_date?: date-only
+      address_country?: 
+      address_locality?: 
+      address_region?: 
+      postal_code?: 
+      street_address?: 
+
+
+  NewBankAccountRequestData:
+    properties:
+      accountType:
+        type: string
+        enum: [ standard, saver ]
+
+  BankAccountData:
+    properties:
+      id: 
+      account_number: 
+      accountType:
+        type: string
+        enum: [ standard, saver ]
+      amount: MonetaryAmountData
+      lei: 
+      fees_and_comissions: 
+      review_state:
+        type: 
+        enum: [ requested, cancelled, opened, closed ]
+      interest_rate: number
+      annual_interest_rate: number
+      minimum_inflow: MonetaryAmountData
+      overdraft_limit: MonetaryAmountData
+
+  NewLoanRequestData:
+    properties:
+      category: 
+      amount: MonetaryAmountData
+      term: DurationData
+      interest_rate: number
+      down_payment: MonetaryAmountData
+      payment_amount: MonetaryAmountData
+      payment_frequency: number
+      review_state:
+        type: string
+        enum:
+          - requested
+          - underwriting
+          - rejected
+          - accepted
+          - repaying
+          - failed
+          - closed
+
+  LoanData:
+    properties:
+      id: 
+      account_number: 
+      accountType:
+        type: string
+        enum: [ standard, saver ]
+      amount: MonetaryAmountData
+      lei: 
+      fees_and_comissions: 
+      review_state:
+        type: string
+        enum:
+          - requested
+          - cancelled
+          - underwriting
+          - accepted
+          - opened
+          - failed
+          - closed
+      interest_rate: number
+      annual_interest_rate: number
+      minimum_inflow: MonetaryAmountData
+      overdraft_limit: MonetaryAmountData
+      grace_period: DurationData
+
+  NewDebitCardRequestData:
+    properties:
+      cash_back: boolean
+      contactless: boolean
+
+  DebitCardData:
+    properties:
+      id: 
+      lei: 
+      fees_and_comissions: 
+      review_state:
+        type: string
+        enum:
+          - requested
+          - cancelled
+          - opened
+          - closed
+      cash_back: boolean
+      contactless: boolean
+      floor_limit: MonetaryAmountData
+
+  NewCreditCardRequestData:
+    properties:
+      cash_back: boolean
+      contactless: boolean
+      interest_rate: number
+      payment_amount: MonetaryAmountData
+      payment_frequency: number
+      review_state:
+        type: string
+        enum:
+          - requested
+          - cancelled
+          - underwriting
+          - accepted
+          - opened
+          - failed
+          - closed
+
+  CreditCardData:
+    properties:
+      id: 
+      amount: MonetaryAmountData
+      lei: 
+      cash_back: boolean
+      contactless: boolean
+      floor_limit: MonetaryAmountData
+      fees_and_comissions: 
+      review_state:
+        type: string
+        enum:
+          - requested
+          - cancelled
+          - underwriting
+          - accepted
+          - opened
+          - failed
+          - closed
+      interest_rate: number
+      annual_interest_rate: number
+      minimum_inflow: MonetaryAmountData
+      overdraft_limit: MonetaryAmountData
+      grace_period: DurationData

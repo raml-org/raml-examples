@@ -1,0 +1,8 @@
+#%RAML 1.0 Trait
+usage: Apply this trait to a metheod that supports returning only specific attributes of the response
+queryParameters:
+  fields:
+    type: string
+    description: |
+      Comma-separated expressions to be used to select attributes of the response.
+    example: $.store.name, $.store.book

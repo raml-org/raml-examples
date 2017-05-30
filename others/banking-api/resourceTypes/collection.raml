@@ -1,0 +1,20 @@
+#%RAML 1.0 ResourceType
+
+usage: Apply this resource type to any resource that returns a collection of members.
+
+uses:
+  traits: ../traits/traits.raml
+
+get:
+  is: [ traits.pageable, traits.sortable ]
+  description: Returns a collection of <<resourcePathName>>
+  responses:
+    200:
+      body:
+        application/json:
+          type: <<response-type>>[]
+post:
+  description: Requests the creation of a new <<resourcePathName | !singularize>>
+  body:
+    application/json:
+      type: <<request-type>>
