@@ -1,0 +1,19 @@
+#%RAML 1.0 DataType
+
+uses:
+  shapes: shapes.raml
+
+type: shapes.CustomerData
+properties:
+  id: string
+  title?:
+    type: string
+    enum: [mr, mrs, ms, dr]
+  given_name: string
+  family_name: string
+  gender:
+    type: string
+    enum: [female, male]
+  vat_id?: string
+  birth_date: date-only
+  death_date?: date-only

@@ -1,0 +1,16 @@
+#%RAML 1.0
+
+title: ACME Banking HTTP API
+version: 1.0
+mediaType: application/json
+
+uses:
+  shapes: dataTypes/shapes.raml
+
+/resource:
+  get:
+    responses: 
+      200:
+        body: 
+          application/json:
+            type: shapes.PersonData
