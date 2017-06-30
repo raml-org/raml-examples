@@ -1,0 +1,15 @@
+{
+  "songId": "550e8400-e29b-41d4-a716-446655440000",
+  "songTitle": "Get Lucky",
+  "duration": "6:07",
+  "artist": {
+    "artistId": "110e8300-e32b-41d4-a716-664400445500",
+    "artistName": "Daft Punk",
+    "imageURL": "http://travelhymns.com/wp-content/uploads/2013/06/random-access-memories1.jpg"
+  },
+  "album": {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440550",
+    "albumName": "Random Access Memories",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg"
+  }
+}

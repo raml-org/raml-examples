@@ -1,0 +1,42 @@
+[
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440550",
+    "albumName": "Random Access Memories",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/a7/Random_Access_Memories.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440551",
+    "albumName": "TRON: Legacy R3CONF1GUR3D",
+    "imageURL": "http://ecx.images-amazon.com/images/I/51Tvo-iArBL.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440552",
+    "albumName": "TRON: Legacy",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/3/39/Tron_Legacy_Soundtrack.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440553",
+    "albumName": "Alive",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/4/49/Daft_Punk_Alive_2007.JPG"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440554",
+    "albumName": "Musique Vol. 1",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/a/ab/Musique_Vol._1_1993%E2%80%932005.png"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440555",
+    "albumName": "Human After All",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/0/0d/Humanafterall.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440556",
+    "albumName": "Daft Club",
+    "imageURL": "http://upload.wikimedia.org/wikipedia/en/f/fc/Daftclub.jpg"
+  },
+  {
+    "albumId": "183100e3-0e2b-4404-a716-66104d440557",
+    "albumName": "Discovery",
+    "imageURL": "http://ecx.images-amazon.com/images/I/71bsHTr6idL._SL1500_.jpg"
+  }
+]
