@@ -37,6 +37,20 @@ securedBy: oauth2_0
     type:
       member:
         get-response-type: CustomerMemberResponse
+        get-response-example: 
+          type: Person
+          id: "!23456"
+          lei: 54930084UKLVMY22DS16
+          tax_id: "999999999"
+          email: info@new.org
+          given_name: Dirk
+          family_name: Fabian
+          gender: male
+          birth_date: 1987-09-30
+          address:
+            address_country: US
+            address_locality: CA
+            postal_code: "90003"
         patch-response-type: shapes.CustomerPatchData
     uriParameters:
       customer_id: string
@@ -51,6 +65,24 @@ securedBy: oauth2_0
         type:
           member:
             get-response-type: shapes.BankAccountData
+            get-response-example:
+              id: my_account
+              account_number: "12345667"
+              accountType: standard
+              amount: 
+                value: 123.45
+                currency: Euro
+              lei: 54930084UKLVMY22DS16
+              fees_and_comissions: no fees
+              review_state: opened
+              interest_rate: 12
+              annual_interest_rate: 15
+              minimum_inflow: 
+                value: 1000
+                currency: Euro
+              overdraft_limit: 
+                value: 500
+                currency: Euro
         uriParameters:
           account_id: string
         delete:
@@ -65,6 +97,26 @@ securedBy: oauth2_0
         type:
           member:
             get-response-type: shapes.LoanData
+            get-response-example:
+              id: my_account
+              account_number: "12345667"
+              accountType: standard
+              amount: 
+                value: 500
+                currency: Euro
+              lei: 54930084UKLVMY22DS16
+              fees_and_comissions: no fees
+              review_state: opened
+              interest_rate: 12
+              annual_interest_rate: 15
+              minimum_inflow: 
+                value: 500
+                currency: Euro
+              overdraft_limit: 
+                value: 500
+                currency: Euro
+              grace_period: 
+                value: 12m
         uriParameters:
           loan_id: string
       /schedule:
@@ -83,6 +135,16 @@ securedBy: oauth2_0
           type:
             member:
               get-response-type: shapes.DebitCardData
+              get-response-example:
+                id: my_account 
+                lei: 54930084UKLVMY22DS16
+                fees_and_comissions: no fees
+                review_state: opened
+                cash_back: true
+                contactless: false
+                floor_limit: 
+                  value: 500
+                  currency: Euro
           uriParameters:
             card_id: string
           delete:
@@ -95,6 +157,29 @@ securedBy: oauth2_0
           type:
             member:
               get-response-type:  shapes.CreditCardData
+              get-response-example:
+                id: my_account
+                amount: 
+                  value: 500
+                  currency: Euro
+                lei: 54930084UKLVMY22DS16
+                cash_back: true
+                contactless: true
+                floor_limit: 
+                  value: 500
+                  currency: Euro
+                fees_and_comissions: no fees
+                review_state: opened
+                interest_rate: 12
+                annual_interest_rate: 15
+                minimum_inflow: 
+                  value: 500
+                  currency: Euro
+                overdraft_limit: 
+                  value: 500
+                  currency: Euro
+                grace_period: 
+                  value: 12m
           uriParameters:
             card_id: string
           delete:

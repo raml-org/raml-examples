@@ -23,10 +23,10 @@ types:
   AddressData:
     properties:
       address_country: 
-      address_locality: 
-      address_region: 
+      address_locality?: 
+      address_region?: 
       postal_code:  
-      street_address: 
+      street_address?: 
 
   NewCustomerData:
     type: AddressData
@@ -79,16 +79,16 @@ types:
     discriminatorValue: Person
     type: CustomerData
     properties:
-      id: string
+      id: 
       title?:
-        type: string
+        type: 
         enum: [mr, mrs, ms, dr]
-      given_name: string
-      family_name: string
+      given_name: 
+      family_name: 
       gender:
         type: string
         enum: [female, male]
-      vat_id?: string
+      vat_id?: 
       birth_date: date-only
       death_date?: date-only
 
