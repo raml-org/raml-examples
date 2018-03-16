@@ -1,0 +1,16 @@
+#%RAML 1.0
+title: Example API
+version: v1
+traits:
+  secured: !include secured.raml
+  orderable: !include orderable.raml
+  pageable: !include pageable.raml
+
+/users:
+  is: [ secured ]
+  get:
+    is: [ orderable, pageable ]
+  post:
+  patch:
+  put:
+  delete:
