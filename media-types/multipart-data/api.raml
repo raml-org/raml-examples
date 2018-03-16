@@ -1,0 +1,34 @@
+#%RAML 1.0
+title: My API
+
+types:
+  Image:
+    type: file
+    fileTypes: ['image/jpeg', 'image/png']
+  HTMLFile:
+    type: file
+    fileTypes: ['text/html']
+  Text:
+    type: file
+    fileTypes: ['text/plain']
+  File: Image | HTMLFile | Text
+
+/files:
+  post:
+    body:
+      multipart/form-data:
+        properties:
+          files:
+            description: The file(s) to be uploaded
+            required: true
+            type: File[]
+
+/images:
+  get:
+    body:
+      multipart/form-data:
+        properties:
+          files:
+            description: The file(s) to be uploaded
+            required: true
+            type: File[]
