@@ -1,0 +1,30 @@
+#%RAML 1.0
+title: My Querying API
+mediaType: application/json
+
+/search:
+  get:
+    queryString: # at least one parameter required
+      minProperties: 1
+      properties:
+        id?: integer
+        name?: string
+        q?: string
+    responses:
+      200:
+        body: array
+
+/books:
+  get:
+    queryParameters: # filter results by nested fields, e.g. /books?author[name]=
+      /^author\[[a-zA-Z]\]+$/: string
+    responses:
+      200:
+        body:
+          properties:
+            title: string
+            author:
+              properties:
+                name: string
+                origin: string
+                awarded: boolean
