@@ -6,7 +6,10 @@ types: # global type definitions that can be reused throughout this API
     properties:
       firstName: string
       lastName:  string
-      age:       number
+      age:
+        type: integer
+        minimum: 0
+        maximum: 125
 /users/{id}:
   get:
     responses:
