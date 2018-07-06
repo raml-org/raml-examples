@@ -3,7 +3,7 @@
 securitySchemes:
   oauth_2_0:
     description: |
-        Dropbox supports OAuth 2.0 for authenticating all API requests.
+        This API supports OAuth 2.0 for authenticating all requests.
     type: OAuth 2.0
     describedBy:
         headers:
@@ -15,8 +15,8 @@ securitySchemes:
         responses:
             401:
                 description: |
-                    Bad or expired token. This can happen if the user or Dropbox
-                    revoked or expired an access token. To fix, you should re-
+                    Bad or expired token. This can happen if the access token
+                    has been revoked or expired. To fix, you should re-
                     authenticate the user.
             403:
                 description: |
