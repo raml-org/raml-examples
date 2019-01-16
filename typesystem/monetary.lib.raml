@@ -1,0 +1,25 @@
+#%RAML 1.0 Library
+usage: Types to be used for monetary values 
+
+types:
+  ZeroValue:
+    description: zero-value numbers, accepting either the 0 or 0.00 (hundreths) forms
+    type: number
+    enum: 
+      - 0
+      - 0.00
+  HundredthsValue:
+    description: non-zero two-decimal place values (positive and negative) 
+    type: number
+    multipleOf: 0.01
+  MonetaryValue: 
+    description: this type describes any monetary value comprised between -9,999,999,999,999.99 and 9,999,999,999,999.99
+    type: ZeroValue | HundredthsValue
+    default: 0.00
+    minimum: -9999999999999.99
+    maximum: 9999999999999.99
+    examples:
+      zero: 0
+      zerozero: 0.00
+      tenten: 10.10
+      negative: -0.10
