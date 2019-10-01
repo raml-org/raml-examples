@@ -1,0 +1,14 @@
+#%RAML 1.0
+title: My API
+mediaType: application/json
+baseUri: https://production.com
+protocols: [ HTTPS ]
+
+uses:
+  lib: types.lib.raml
+
+/users:
+  get:
+    responses:
+      200:
+        body: lib.User[]

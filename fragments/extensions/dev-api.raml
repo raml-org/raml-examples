@@ -1,0 +1,26 @@
+#%RAML 1.0 Extension
+extends: api.raml # RAML API definition to extend
+
+title: My Dev API # DEVELOPMENT-only API definition
+baseUri: http://localhost # "localhost" baseUri
+protocols: [ HTTP, HTTPS ] # allow unsecured HTTP
+
+uses:
+  lib: types.lib.raml
+
+types:
+  User: # add a few development-only properties to the "User" type
+    type: lib.User
+    properties:
+      id: integer
+      role: string
+
+/users:
+  post: # add a POST method to be able to create "test users"
+    body: User
+
+  /{id}: # /users/{id} resource to view all of a given user's data set
+    get:
+      responses:
+        200:
+          body: User
