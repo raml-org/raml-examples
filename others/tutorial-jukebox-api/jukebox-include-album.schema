@@ -17,7 +17,7 @@
       "type": "string",
       "required": false
     },
-    "iamgeURL": {
+    "imageURL": {
       "type": "string",
       "required": false
     },
