@@ -1,6 +1,13 @@
 #%RAML 1.0 Trait
-usage: Apply this to a method that support sorting.
-queryParameters:
-  sort?:
-    type: string
-    example: name,-age
+  usage: Apply this to a method that support sorting.
+  queryParameters:
+         sortBy:
+           description: |
+             Order by field: <<attributeList>>
+           type: string
+           required: false
+         order:
+           description: Order
+           enum: [desc, asc]
+           default: desc
+           required: false
